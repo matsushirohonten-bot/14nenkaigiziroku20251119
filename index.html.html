@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>じゅうよねん会 議事録 - 2024年11月19日</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Yu Gothic', 'Hiragino Sans', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        
+        header {
+            border-bottom: 4px solid #2196F3;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #1976D2;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .meta-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+            padding: 15px;
+            background: #E3F2FD;
+            border-radius: 5px;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .meta-item strong {
+            color: #1976D2;
+            min-width: 80px;
+        }
+        
+        nav {
+            background: #FFF9C4;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 30px 0;
+        }
+        
+        nav h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #F57C00;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        
+        nav a {
+            color: #F57C00;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        
+        nav a:hover {
+            background: #FFE082;
+        }
+        
+        section {
+            margin: 40px 0;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        h2 {
+            color: #1976D2;
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid #2196F3;
+        }
+        
+        h3 {
+            color: #424242;
+            font-size: 20px;
+            margin: 25px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E0E0E0;
+        }
+        
+        h4 {
+            color: #616161;
+            font-size: 16px;
+            margin: 20px 0 10px;
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: #FFF3E0;
+            border-left: 5px solid #FF9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .success-box {
+            background: #E8F5E9;
+            border-left: 5px solid #4CAF50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .warning-box {
+            background: #FFEBEE;
+            border-left: 5px solid #F44336;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .info-box {
+            background: #E3F2FD;
+            border-left: 5px solid #2196F3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        
+        th {
+            background: #2196F3;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        tr:hover {
+            background: #F5F5F5;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .collapsible {
+            background: #f1f1f1;
+            color: #444;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 16px;
+            border-radius: 4px;
+            margin: 10px 0;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+        
+        .collapsible:hover {
+            background: #ddd;
+        }
+        
+        .collapsible:after {
+            content: ' ▼';
+            float: right;
+            font-size: 12px;
+        }
+        
+        .collapsible.active:after {
+            content: ' ▲';
+        }
+        
+        .content {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: #f9f9f9;
+        }
+        
+        .content.show {
+            padding: 18px;
+            max-height: 2000px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 0 5px;
+        }
+        
+        .badge-primary {
+            background: #2196F3;
+            color: white;
+        }
+        
+        .badge-success {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .badge-warning {
+            background: #FF9800;
+            color: white;
+        }
+        
+        .badge-danger {
+            background: #F44336;
+            color: white;
+        }
+        
+        .action-item {
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            border-left: 4px solid #4CAF50;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .score-high {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .score-low {
+            color: #F44336;
+            font-weight: bold;
+        }
+        
+        .score-mid {
+            color: #FF9800;
+            font-weight: bold;
+        }
+        
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .collapsible {
+                display: none;
+            }
+            .content {
+                max-height: none !important;
+                display: block !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 じゅうよねん会 議事録</h1>
+            <div class="meta-info">
+                <div class="meta-item">
+                    <strong>📅 日時：</strong>
+                    <span>2024年11月19日（水）16:00～18:30</span>
+                </div>
+                <div class="meta-item">
+                    <strong>📍 形式：</strong>
+                    <span>オンライン会議</span>
+                </div>
+                <div class="meta-item">
+                    <strong>👥 参加者：</strong>
+                    <span>10名</span>
+                </div>
+            </div>
+        </header>
+
+        <nav>
+            <h2>📑 目次</h2>
+            <ul>
+                <li><a href="#overview">会議概要</a></li>
+                <li><a href="#decisions">重要決定事項</a></li>
+                <li><a href="#scouter">スカウター検査結果分析</a></li>
+                <li><a href="#meiji">明治からの報告</a></li>
+                <li><a href="#reports">個人報告</a></li>
+                <li><a href="#actions">アクションアイテム</a></li>
+            </ul>
+        </nav>
+
+        <section id="overview">
+            <h2>📊 会議概要</h2>
+            
+            <h3>参加者</h3>
+            <div class="info-box">
+                <h4>販売店メンバー（8名）</h4>
+                <p>松代さん（リーダー）、松浦さん、後さん、西森さん、植田さん、立原清光さん、立原幹三さん、板持さん</p>
+                
+                <h4 style="margin-top: 15px;">明治側（2名）</h4>
+                <p>水戸課長、森内係長</p>
+            </div>
+
+            <h3>議題</h3>
+            <ol>
+                <li><strong>スカウター検査結果の分析と共有</strong>（メイン議題）</li>
+                <li>明治からの事業報告</li>
+                <li>各販売店の個人報告</li>
+                <li>次回開催日程の決定</li>
+            </ol>
+        </section>
+
+        <section id="decisions">
+            <h2>🎯 重要決定事項</h2>
+            
+            <div class="highlight-box">
+                <h3>次回開催</h3>
+                <ul>
+                    <li><strong>日時：</strong>2025年2月14日（金）※リアル開催</li>
+                    <li><strong>今後の開催予定：</strong>2月、5月、8月、11月の年4回継続</li>
+                </ul>
+            </div>
+
+            <div class="success-box">
+                <h3>じゅうよねん会の今後の方向性</h3>
+                <ul>
+                    <li>スカウター検査を活用した能力開発に注力</li>
+                    <li>研修テーマ：①自己主張スキル向上、②援助申し入れ能力強化、③問題解決行動能力の向上</li>
+                    <li>1年後に再度スカウター検査を実施し、成長を数値で確認</li>
+                    <li>メンタルヘルスケアの専門家を招いた個別相談会の検討</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="scouter">
+            <h2>🔍 スカウター検査結果分析</h2>
+            
+            <div class="info-box">
+                <p><strong>検査概要：</strong>全メンバーが350問程度の性格・能力診断を受検。営業適性、配達適性、ストレス耐性、コミュニケーション能力など多面的に分析。</p>
+                <p><strong>活用目的：</strong>採用判断の材料、自己理解の促進、組織全体の能力向上</p>
+            </div>
+
+            <h3>✅ じゅうよねん会の強み（全体傾向）</h3>
+            
+            <table>
+                <tr>
+                    <th>項目</th>
+                    <th>評価</th>
+                    <th>詳細</th>
+                </tr>
+                <tr>
+                    <td>戦闘力（総合能力）</td>
+                    <td class="score-mid">中程度（3592点）</td>
+                    <td>成長余地が大きいことを示す</td>
+                </tr>
+                <tr>
+                    <td>粘り強さ・個室性</td>
+                    <td class="score-high">高い</td>
+                    <td>1つのことにコツコツ取り組める、やり抜く力がある</td>
+                </tr>
+                <tr>
+                    <td>成長スキル</td>
+                    <td class="score-high">高い</td>
+                    <td>人の話を聞ける経営者が多い</td>
+                </tr>
+                <tr>
+                    <td>向上心</td>
+                    <td class="score-high">高い</td>
+                    <td>全員が学ぶ意欲を持っている</td>
+                </tr>
+            </table>
+
+            <h3>⚠️ 改善が必要な課題（全体傾向）</h3>
+            
+            <table>
+                <tr>
+                    <th>項目</th>
+                    <th>平均点</th>
+                    <th>評価</th>
+                    <th>具体的な課題</th>
+                </tr>
+                <tr>
+                    <td>自己主張スキル</td>
+                    <td class="score-low">26点</td>
+                    <td>極めて低い</td>
+                    <td>スタッフへの指示、意見表明が苦手。控えめな性格</td>
+                </tr>
+                <tr>
+                    <td>援助申し入れ</td>
+                    <td class="score-low">低い</td>
+                    <td>低い</td>
+                    <td>困った時にヘルプを求められない。一人で抱え込む傾向</td>
+                </tr>
+                <tr>
+                    <td>問題解決行動</td>
+                    <td class="score-mid">38点</td>
+                    <td>やや低い</td>
+                    <td>論理的に問題を解決する力が不足</td>
+                </tr>
+                <tr>
+                    <td>悲観主義傾向</td>
+                    <td class="score-mid">56点</td>
+                    <td>やや高い</td>
+                    <td>ネガティブ思考に陥りやすい</td>
+                </tr>
+            </table>
+
+            <h3>🎯 重点的に伸ばすべき3つの分野</h3>
+            
+            <div class="warning-box">
+                <h4>1. 自己主張スキルの向上</h4>
+                <ul>
+                    <li><strong>現状：</strong>自分の意見を言うことが苦手、スタッフへの指示出しに躊躇</li>
+                    <li><strong>改善策：</strong>アサーティブコミュニケーション研修の実施</li>
+                    <li><strong>具体例：</strong>「私はこう思います」を主語にした伝え方の訓練</li>
+                    <li><strong>効果：</strong>スタッフとの関係改善、組織運営の円滑化</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h4>2. 援助申し入れ能力の強化</h4>
+                <ul>
+                    <li><strong>現状：</strong>困っても人に頼れない、一人で抱え込む</li>
+                    <li><strong>背景分析：</strong>「怒られる」「断られる」「迷惑をかける」という不安</li>
+                    <li><strong>改善策：</strong>チーム内で相談しやすい雰囲気づくり、定期的な面談</li>
+                    <li><strong>リーダーの気づき：</strong>松代さん自身が「攻撃性83点」と高く、それがスタッフの相談を阻害している可能性を認識</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h4>3. 問題解決行動能力（ロジカルシンキング）</h4>
+                <ul>
+                    <li><strong>現状：</strong>問題が起きた時に論理的に解決する力が不足</li>
+                    <li><strong>改善策：</strong>問題解決フレームワークの研修、ケーススタディ</li>
+                    <li><strong>提案：</strong>AIツール（ChatGPT）の活用で思考の整理を支援</li>
+                    <li><strong>成功事例：</strong>松代さんは5年前より問題解決能力が倍増（AI活用の効果）</li>
+                </ul>
+            </div>
+
+            <button class="collapsible">📝 個人の気づき（匿名）- クリックして展開</button>
+            <div class="content">
+                <h4>✅ 「合っている」と感じた点</h4>
+                <ul>
+                    <li><strong>複数名：</strong>「自己主張が苦手」「援助を求められない」という指摘は当たっている</li>
+                    <li><strong>一部メンバー：</strong>「粘り強さが高い」「やり抜く力がある」という強みを再認識</li>
+                    <li><strong>一部メンバー：</strong>「問題解決が苦手」という点は自覚していた</li>
+                    <li><strong>一部メンバー：</strong>ほぼ全ての診断結果が自己認識と一致していた</li>
+                </ul>
+
+                <h4>❓ 違和感を感じた点</h4>
+                <ul>
+                    <li><strong>複数名：</strong>「感情的に物事を捉える」→ 自分ではフラットに判断しているつもり</li>
+                    <li><strong>一部メンバー：</strong>「完璧主義」→ そこまで完璧主義ではないと思う</li>
+                    <li><strong>一部メンバー：</strong>「相手の話を最後まで聞くのが苦手」→ 聞いているつもりだが...</li>
+                    <li><strong>一部メンバー：</strong>「援助申し入れ能力が高い」→ 実際は人に頼むのが苦手なのに...</li>
+                    <li><strong>一部メンバー：</strong>「悲観主義」→ それほど悲観的ではないと思う</li>
+                </ul>
+
+                <h4>💡 重要な洞察</h4>
+                <div class="info-box">
+                    <p><strong>リーダー（松代さん）の気づき：</strong></p>
+                    <ul>
+                        <li>自分の「攻撃性83点」（非常に高い）を知り、スタッフが相談しづらい環境を作っていた可能性に気づいた</li>
+                        <li>「自分ではそんなつもりはない」が、周囲からはそう見えている可能性</li>
+                        <li>違和感を感じる結果こそ、「見たくない自分」を映している可能性が高い</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>🔄 1年後の再評価計画</h3>
+            <div class="success-box">
+                <ul>
+                    <li>2025年に再度スカウター検査を実施</li>
+                    <li>数値の変化を確認し、研修効果を測定</li>
+                    <li>能力向上が確認できれば、業績にもプラスに働くはず</li>
+                    <li>個人の成長が組織全体のレベルアップにつながる</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="meiji">
+            <h2>🏢 明治からの報告（水戸課長・森内係長）</h2>
+            
+            <h3>📊 事業概況</h3>
+            <div class="info-box">
+                <h4>全体状況</h4>
+                <ul>
+                    <li><strong>中間決算：</strong>大手3社とも厳しい数字。価格改定でようやく利益確保</li>
+                    <li><strong>7月値上げ後：</strong>9月は前年超え、10月は95.2%（実力95%程度）</li>
+                    <li><strong>物量：</strong>数量ベースでは90%程度に落ち込んでいる</li>
+                    <li><strong>保有件数：</strong>175.9万件（ピーク時282万件から100万件以上減少）</li>
+                </ul>
+            </div>
+
+            <h3>🌟 重点商品の動向</h3>
+            
+            <table>
+                <tr>
+                    <th>商品名</th>
+                    <th>状況</th>
+                    <th>施策</th>
+                </tr>
+                <tr>
+                    <td>R-1</td>
+                    <td class="score-high">好調</td>
+                    <td>
+                        • 店頭：非常に好調<br>
+                        • 宅配：10-11月に上向き<br>
+                        • インフルエンザ流行で需要増<br>
+                        • 新キャラクター「R王子さん」投入<br>
+                        • ミニートチラシ新バージョン展開
+                    </td>
+                </tr>
+                <tr>
+                    <td>コレステサラリン</td>
+                    <td class="score-high">好調</td>
+                    <td>
+                        • 日販33,000本<br>
+                        • 中国エリアも予算クリア<br>
+                        • 非常に好調に推移
+                    </td>
+                </tr>
+                <tr>
+                    <td>ヘモグロビンA1c</td>
+                    <td class="score-high">大ヒット</td>
+                    <td>
+                        • 10月中旬発売（市販向け）<br>
+                        • 脂肪対策ヨーグルトから切替<br>
+                        • 前月2万本→11万本（<strong>5倍以上</strong>）<br>
+                        • LG21の半分の売上を1/3の売場で達成<br>
+                        • 藤原竜也さんのCMを1月末まで追加投入
+                    </td>
+                </tr>
+            </table>
+
+            <h3>📅 宅配企画</h3>
+            <ul>
+                <li><strong>12月：</strong>なめらか（現在進行中）</li>
+                <li><strong>1月：</strong>チョコレート（クーポンチラシの反応が良好）</li>
+                <li><strong>2月：</strong>朝のリズムチーズ</li>
+            </ul>
+
+            <h3>🎯 重点施策</h3>
+            
+            <h4>1. イベント開拓への転換</h4>
+            <div class="highlight-box">
+                <p><strong>方針：</strong>訪問開拓からイベント開拓へ、プッシュ型営業からプル型営業へ</p>
+                
+                <h4>イベント場所の開拓先</h4>
+                <ul>
+                    <li><strong>地域イベント：</strong>自治体HP、SNSから情報収集</li>
+                    <li><strong>高齢者施設：</strong>サロン、デイサービス</li>
+                    <li><strong>商業施設：</strong>スーパー、ショッピングモール</li>
+                    <li><strong>医療機関：</strong>調剤薬局、クリニック</li>
+                    <li><strong>企業：</strong>健康経営支援、福利厚生イベント</li>
+                    <li><strong>サービス業：</strong>集客コラボ（車ディーラー、保険会社など）</li>
+                    <li><strong>郵便局：</strong>代理店（JPコミュニケーションズ）経由で全国展開可能</li>
+                </ul>
+
+                <h4>イベント営業のメリット</h4>
+                <ul>
+                    <li>訪問営業より接点のハードルが低い</li>
+                    <li>契約率が高い</li>
+                    <li>室内なら気候的リスクが低い（熱中症回避）</li>
+                    <li>即決が多く、サンプル使用率が高い</li>
+                    <li>回収の手間が省ける</li>
+                </ul>
+
+                <h4>デメリットと対応策</h4>
+                <ul>
+                    <li>スペース費用がかかる → 代理店活用で軽減</li>
+                    <li>同じ場所で繰り返すと契約率低下 → 訪問営業も同様</li>
+                    <li>スタッフの接客力が求められる → 配布回収型も選択肢</li>
+                </ul>
+            </div>
+
+            <h4>2. エッセンシャルワーカー開拓</h4>
+            <ul>
+                <li><strong>ターゲット：</strong>介護職、医療従事者、学習塾講師など</li>
+                <li><strong>病院向け：</strong>セット販売</li>
+                <li><strong>学習塾向け：</strong>受験生・保護者向け説明会でのイベント</li>
+            </ul>
+
+            <h4>3. 休眠客掘り起こし企画</h4>
+            <ul>
+                <li>休眠客向けチラシ（2種類作成中）</li>
+                <li>既存客向け増本チラシ</li>
+            </ul>
+
+            <h4>4. ヘモグロビンA1cの積極展開</h4>
+            <div class="warning-box">
+                <p><strong>注意：</strong>利益率は宅配より低いため、積極推奨は控えめに</p>
+                <p><strong>提案方法：</strong>「2週間に1セット（1ボール）」など新しい提案スタイル</p>
+                <p><strong>位置づけ：</strong>宅配商品プラスアルファの売上確保</p>
+            </div>
+        </section>
+
+        <section id="reports">
+            <h2>📈 個人報告</h2>
+            
+            <button class="collapsible">板持さんの報告</button>
+            <div class="content">
+                <h4>実績</h4>
+                <ul>
+                    <li>イベント：定期的に実施（3ヶ月に1回、同じ場所で継続）</li>
+                    <li>企業サンプリング：人手不足により未実施</li>
+                </ul>
+                <h4>次回までの行動計画</h4>
+                <ul>
+                    <li>イベント・企業開拓の継続</li>
+                    <li>営業社員の座学実施（明治・近藤さんと連携）</li>
+                </ul>
+                <h4>質問事項</h4>
+                <ul>
+                    <li><strong>座学について：</strong>各社の実施状況を知りたい</li>
+                    <li><strong>セキュリティ対策：</strong>ランサムウェア対策（アスクル・朝日新聞が感染）の実施状況</li>
+                </ul>
+                <p><strong>→ 各社の回答：</strong>座学は月1～2回実施（社員向け）。セキュリティはウイルスソフト導入のみが大半</p>
+            </div>
+
+            <button class="collapsible">後さんの報告</button>
+            <div class="content">
+                <h4>実績</h4>
+                <ul>
+                    <li>99円以下の未回収金を請求しない方針に変更 → 配達時間が1時間→10分に短縮、好評</li>
+                    <li>イベント：15回実施（スイミングスクール、スーパーなど）</li>
+                    <li>新規契約：8本（週14本まとめて取れるケースあり）</li>
+                </ul>
+                <h4>次回までの行動計画</h4>
+                <ul>
+                    <li>QRコード付きチラシのポスティング（ホームページの無料サンプル申込ページへ誘導）</li>
+                    <li>R王子さんキャラクターを活用した施策</li>
+                    <li>郵便局でのイベント開催</li>
+                    <li>スタッフ確保（60名規模のグランドゴルフイベント準備中）</li>
+                </ul>
+                <h4>質問事項</h4>
+                <ul>
+                    <li>人件費上昇への対応：各社の給料体系と業務分担を知りたい</li>
+                </ul>
+            </div>
+
+            <button class="collapsible">西森さんの報告</button>
+            <div class="content">
+                <h4>実績</h4>
+                <ul>
+                    <li>新規本数：8本（週14本取れる営業スタッフの活躍）</li>
+                </ul>
+                <h4>次回までの行動計画</h4>
+                <ul>
+                    <li>配達業務の見直し（営業時間確保のため）</li>
+                </ul>
+                <h4>学んだこと</h4>
+                <ul>
+                    <li>ChatGPTの質問投げかけ方が重要だと理解</li>
+                </ul>
+                <h4>要望</h4>
+                <ul>
+                    <li>ChatGPT勉強会の開催（パソコン持ち込みでの実践形式）</li>
+                    <li>おすすめの質問集があれば共有してほしい</li>
+                    <li>若手販売店の視察希望</li>
+                </ul>
+            </div>
+
+            <button class="collapsible">植田さんの報告</button>
+            <div class="content">
+                <h4>課題</h4>
+                <ul>
+                    <li><strong>配達員不足：</strong>2～3ヶ月間、面接すら来ない状況</li>
+                    <li>求人媒体：Indeed（インディード）のみ</li>
+                </ul>
+                <h4>次回までの行動計画</h4>
+                <ul>
+                    <li>冬季対応の早期準備</li>
+                    <li>事務所・車内の整理整頓、清掃の徹底</li>
+                </ul>
+                <h4>学んだこと</h4>
+                <ul>
+                    <li>議事録自動作成に興味（音声→文字起こし→議事録）</li>
+                </ul>
+            </div>
+
+            <button class="collapsible">松代さん（リーダー）の報告</button>
+            <div class="content">
+                <h4>実績</h4>
+                <ul>
+                    <li>イベント：土日で30件契約のイベントを10月に5回実施（好調）</li>
+                    <li>M-1（全国1位の販売店）の視察受入を実施 → 店長全員参加、交流実現</li>
+                    <li>スタッフ店長にもスカウター検査を実施</li>
+                </ul>
+                <h4>次回までの行動計画</h4>
+                <ul>
+                    <li>じゅうよねん会のレベルアップに注力</li>
+                    <li>研修内容の充実（自己主張、問題解決、ポジティブ思考）</li>
+                </ul>
+                <h4>活用しているツール</h4>
+                <ul>
+                    <li>ChatGPT × GAS（Google Apps Script）で業務自動化</li>
+                    <li>表作成、データ分析の自動化により事務作業を大幅削減</li>
+                </ul>
+                <h4>AI活用のコツを共有</h4>
+                <div class="info-box">
+                    <p><strong>効果的なChatGPT活用法：</strong></p>
+                    <ol>
+                        <li>単純に質問するのではなく、<strong>「一緒に考えてほしいので、問いを3つ私に投げかけてください」</strong>と依頼</li>
+                        <li>ChatGPTからの質問に答えることで、より精度の高い回答が得られる</li>
+                        <li><strong>「忖度せずストレートに意見をください」</strong>と付け加えるとさらに良い</li>
+                    </ol>
+                    <p><strong>例：</strong>「明治宅配センターの新規開拓方法を教えてください。一緒に考えてほしいので、問いを3つ私に投げかけてください。あなたのおすすめの提案も添えて。忖度せずストレートに意見をください。」</p>
+                </div>
+            </div>
+
+            <button class="collapsible">松浦さんの報告</button>
+            <div class="content">
+                <h4>実績</h4>
+                <ul>
+                    <li>クレジット決済の導入準備完了（2025年4月スタート予定）</li>
+                </ul>
+                <h4>次回までの行動計画</h4>
+                <ul>
+                    <li>数値の悪い営業所（岡山・倉敷・丸亀）の管理担当に</li>
+                    <li>毎週ミーティング参加、イベント営業に同行</li>
+                    <li>宅配商品の開発（地域産品の活用）</li>
+                    <li>YouTube動画の毎日アップ（求人目的）</li>
+                </ul>
+                <h4>学んだこと</h4>
+                <ul>
+                    <li>ChatGPTの活用で助かっている</li>
+                </ul>
+                <h4>質問事項</h4>
+                <ul>
+                    <li>ゴルフコンペの宿泊費：じゅうよねん会負担でよいか？</li>
+                    <li>→ 回答：遠方からの参加者のみ負担継続（残高260万円あり、問題なし）</li>
+                </ul>
+            </div>
+
+            <button class="collapsible">立原清光さんの報告</button>
+            <div class="content">
+                <h4>実績</h4>
+                <ul>
+                    <li>配達員2名採用（8月・10月、IndeedのPlusプランで）</li>
+                    <li>新規契約：好調（スタッフの成果）</li>
+                </ul>
+                <h4>次回までの行動計画</h4>
+                <ul>
+                    <li>さらに2～3名の配達員確保が必要</li>
+                    <li>Indeed Plusプランの継続活用</li>
+                </ul>
+            </div>
+
+            <button class="collapsible">立原幹三さんの報告</button>
+            <div class="content">
+                <h4>実績</h4>
+                <ul>
+                    <li>配達員4名採用（全員Indeed Plusプランで）</li>
+                    <li>若い人の採用に成功</li>
+                    <li>地域新聞（プレスネット）は問い合わせ3件も面接には至らず</li>
+                </ul>
+                <h4>次回までの行動計画</h4>
+                <ul>
+                    <li>イベント営業に従業員を巻き込む（専務だけでなく）→ 従業員が生き生きと活動</li>
+                    <li>価格表示を全て税込に統一（パンフレット含む）</li>
+                </ul>
+                <h4>学んだこと</h4>
+                <ul>
+                    <li>ChatGPTでセールストークを参考にしている</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="actions">
+            <h2>✅ アクションアイテム</h2>
+            
+            <h3>全員共通</h3>
+            <div class="action-item">
+                <strong>📅 次回参加：</strong>2025年2月14日（金）のじゅうよねん会に参加
+            </div>
+            <div class="action-item">
+                <strong>📖 スカウター結果の振り返り：</strong>個人結果を見直し、改善点を意識した行動を開始
+            </div>
+            <div class="action-item">
+                <strong>🤖 AI活用の実践：</strong>ChatGPTの「問いを投げかけてもらう」手法を業務で試す
+            </div>
+
+            <h3>リーダー（松代さん）</h3>
+            <div class="action-item">
+                <strong>📝 議事録配信：</strong>本日の音声から自動生成した議事録をLINEで全員に送付
+            </div>
+            <div class="action-item">
+                <strong>📚 研修企画：</strong>次回以降の研修内容を企画（自己主張スキル、問題解決、メンタルヘルス等）
+            </div>
+
+            <h3>個別アクション</h3>
+            <div class="action-item">
+                <strong>🎓 ChatGPT勉強会検討：</strong>パソコン持ち込みでの実践形式勉強会の企画（西森さん要望）
+            </div>
+            <div class="action-item">
+                <strong>📱 Instagram活用：</strong>イベント情報収集のためにInstagramを活用（松代さんから全員へ推奨）
+            </div>
+            <div class="action-item">
+                <strong>💼 求人対策：</strong>
+                <ul>
+                    <li>LINE公式アカウント（求人専用）の作成検討</li>
+                    <li>Indeed Plusプランの活用継続</li>
+                    <li>週1勤務など柔軟な働き方の提案</li>
+                </ul>
+            </div>
+            <div class="action-item">
+                <strong>🎪 イベント開拓：</strong>
+                <ul>
+                    <li>Instagramでイベント情報を収集</li>
+                    <li>郵便局イベント（JPコミュニケーションズ経由）の検討</li>
+                    <li>エッセンシャルワーカー向け開拓の実施</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <p>本議事録は2024年11月19日開催のじゅうよねん会の内容を基に作成されました</p>
+            <p>作成日：2024年11月19日 | 次回開催：2025年2月14日（金）</p>
+        </footer>
+    </div>
+
+    <script>
+        // 折りたたみ機能
+        var coll = document.getElementsByClassName("collapsible");
+        for (var i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.classList.contains("show")) {
+                    content.classList.remove("show");
+                } else {
+                    content.classList.add("show");
+                }
+            });
+        }
+
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
